@@ -26,6 +26,9 @@ def preprocessing(img, size):
         y = w % 32
         w = w - y
     # the cv2 resize func : dsize format is (W ,H)
+    if h > 2000 and w > 2000:
+        h //= 2
+        w //= 2
     img = cv2.resize(img, (w, h))
     return img/127.5 - 1.0
 
